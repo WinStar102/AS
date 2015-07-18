@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Shared Preferences Example</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="valuesHeader_textView">Values</string>
+    <string name="name_textView">Name:</string>
+    <string name="surname_textView">Surname:</string>
+    <string name="change_button">Change</string>
+    <string name="title_activity_change">ChangeActivity</string>
+    <string name="changeHeader_textView">Change</string>
+    <string name="name_editText">Name</string>
+    <string name="surname_editText">Surname</string>
+    <string name="saveChanges_button">Save changes</string>
+    <string name="pref_name">name</string>
+    <string name="pref_surname">surname</string>
+</resources>
