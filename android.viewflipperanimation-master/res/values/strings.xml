@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">View Flipper Animation</string>
+    <string name="imageview1_content_desc">Jelly Bean Image</string>
+    <string name="imageview2_content_desc">Ice Cream Sandwich Image</string>
+    <string name="menu_sourcecode">View Source Code</string>
+    <string name="menu_quitapp">Quit App</string>
+    <string name="title_activity_source_code">Source Code</string>
+
+</resources>

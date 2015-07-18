@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	</head>
+	<body>
+		<p>MainActivity.java</p>
+<pre>
+package net.jstyleconcept.android.viewflipperanimation;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.MotionEvent;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
+import android.widget.ViewFlipper;
+
+public class MainActivity extends Activity {
+	ViewFlipper viewFlipper;
+	float startX,endX;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		getWindow().setFlags
+		(
+			WindowManager.LayoutParams.FLAG_FULLSCREEN,
+			WindowManager.LayoutParams.FLAG_FULLSCREEN
+		);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.layout_mainactivity);
+		viewFlipper=(ViewFlipper)findViewById(R.id.viewFlipper1);
+	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		switch(event.getAction()) {
+			case MotionEvent.ACTION_DOWN:
+				startX=event.getX();
+				break;
+			case MotionEvent.ACTION_UP:
+				endX=event.getX();
+				if(startX&gt;endX) { /* Flip Left */
+					viewFlipper.setInAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.infromright));
+					viewFlipper.setOutAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.outtoleft));
+					viewFlipper.showNext();
+				}
+				if(startX&lt;endX) { /* Flip Right */
+					viewFlipper.setInAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.infromleft));
+					viewFlipper.setOutAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.outtoright));
+					viewFlipper.showPrevious();
+				}
+				break;
+		}
+		return super.onTouchEvent(event);
+	}
+}
+</pre>
+		<hr />
+		<p>res/anim/infromright.xml</p>
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_interpolator" &gt;
+
+    &lt;translate
+        android:duration="500"
+        android:fromXDelta="100%"
+        android:toXDelta="0%" /&gt;
+
+&lt;/set&gt;
+</pre>
+		<hr />
+		<p>res/anim/outtoleft.xml</p>
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_interpolator" &gt;
+
+    &lt;translate
+        android:duration="500"
+        android:fromXDelta="0%"
+        android:toXDelta="-100%" /&gt;
+
+&lt;/set&gt;
+</pre>
+		<hr />
+		<p>res/anim/infromleft.xml</p>
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_interpolator" &gt;
+
+    &lt;translate
+        android:duration="500"
+        android:fromXDelta="-100%"
+        android:toXDelta="0%" /&gt;
+
+&lt;/set&gt;
+</pre>
+		<hr />
+		<p>res/anim/outtoright.xml</p>
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_interpolator" &gt;
+
+    &lt;translate
+        android:duration="500"
+        android:fromXDelta="0%"
+        android:toXDelta="100%" /&gt;
+
+&lt;/set&gt;
+</pre>
+	</body>
+</html>
